@@ -1,9 +1,8 @@
 window.addEventListener('DOMContentLoaded', () => {
     const searchButton = document.getElementById('search-button');
-    const searchVal = document.getElementById('search-val').value
+    const searchVal = document.getElementById('search-val');
      searchButton.addEventListener('click', ()=> {
-         console.log(searchVal);
-        fetch(`https://genius-song-lyrics1.p.rapidapi.com/search?q=${searchVal}`, {
+        fetch(`https://genius-song-lyrics1.p.rapidapi.com/search?q=${searchVal.value}`, {
             "method": "GET",
             "headers": {
                 "x-rapidapi-host": "genius-song-lyrics1.p.rapidapi.com",
