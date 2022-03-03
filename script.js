@@ -4,6 +4,7 @@ window.addEventListener('DOMContentLoaded', () => {
     const artistName = document.getElementById('artist-name');
     const songName = document.getElementById('song-name');
     const lyrics = document.getElementById('lyrics');
+    const albumPic = document.getElementById('albumPic');
     searchButton.addEventListener('click', ()=> {
         searchVideo(searchVal.value)
         let songURL = `https://genius.p.rapidapi.com`
@@ -16,15 +17,21 @@ window.addEventListener('DOMContentLoaded', () => {
         })
         .then(res => res.json())
         .then(data => {
-            artistName.appendChild(document.createTextNode(data.response.hits[0].result.artist_names))
-            songName.appendChild(document.createTextNode(data.response.hits[0].result.title))
+            artistName.innerText = data.response.hits[0].result.artist_names;
+            songName.innerText = data.response.hits[0].result.title;
+            albumPic.src = data.response.hits[0].result.header_image_thumbnail_url;
             console.log(data) //.response.hits[0].result
             let songID = data.response.hits[0].result.id;
-            let showLyrics = document.createElement("button");
-            showLyrics.setAttribute('class', 'btn btn-primary');
-            showLyrics.innerText = "Show Lyrics Don't Click unless needed lol";
-            lyrics.appendChild(showLyrics);
+            lyrics.innerHTML = `
+            <button class = "btn btn-primary" id = "showLyrics">Show lyrics Don't Click unless needed lol</button>
+            `
+            let showLyrics = document.getElementById("showLyrics");
             showLyrics.addEventListener('click', () => {
+                lyrics.innerHTML = `
+                <div class ="d-flex justify-content-center">
+                <div class="spinner-grow text-warning mt-5" style="width: 3rem; height: 3rem;"></div>
+                </div>
+                `
                 fetch(`https://genius-song-lyrics1.p.rapidapi.com/songs/${songID}/lyrics`, {
                     "method": "GET",
                     "headers": {
@@ -34,6 +41,7 @@ window.addEventListener('DOMContentLoaded', () => {
                 })
                 .then(res => res.json())
                 .then(data => {
+                    console.log(data);
                     lyrics.innerHTML = data.response.lyrics.lyrics.body.html;
                 }); 
             })

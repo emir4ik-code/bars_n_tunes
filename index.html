@@ -9,29 +9,53 @@
 </head>
 <body>
     <div class="container-fluid">
-            <div class="row">
-              <div class="col-4">
-                Search Bar and results output
-                <input class="form-control" type="text" placeholder="Search a song" id="search-val">
-                <button type="button" class="btn btn-primary" id="search-button">Go!</button>
+      <div class = 'row justify-content-center bg-dark'>
+        <div class ="col-4">
+          <img src = "logo.png"  class="img-fluid">
+        </div>
+      </div>
+      <div class="row justify-content-center bg-dark">
+        <div class="col-6 text-center">
+          <h5>Search for lyrics with song title</h5>
+          <input class="form-control" type="text" placeholder="Search a song" id="search-val">
+          <button type="button" class="btn m-3" style = "background-color: #F5763B" id ="search-button">Go!</button>
+        </div>
+      </div>
+      <div class = 'row justify-content-center'>
+        <div class="col-6">
+          <div class="row">
+            <div class = 'col'>
+              <img id = 'albumPic' class="mt-2">
+            </div>
+            <div class = "col">
+              <div class ='row'>
+                <h2 id="song-name"></h2>
               </div>
-              <div class="col-4">
-                Artist info and song lyrics
-                <div class="row">
-                <div class='col' id="artist-name"></div>
-                <div class ='col'id="song-name"></div>
-              </div>
-              <div id="videoDiv">
-              <!-- <iframe width="300" height="200"
-src="https://www.youtube.com/embed/tgbNymZ7vqY">
-              </iframe> -->
-              </div>
+              <div class='row'>
+                <h3 id="artist-name"></h3>
+
                 <div id ='lyrics'></div>
                 </div>
               <div class="col-4">
                 Word definition
               </div>
             </div>
+          </div>
+          <div id ='lyrics'></div>
+        </div>
+        <div class="col-4">
+          <div class="row offset-md-3">
+            <div id="videoDiv">
+              <!-- <iframe width="300" height="200"
+src="https://www.youtube.com/embed/tgbNymZ7vqY">
+              </iframe> -->
+              </div>
+          </div>
+          <div class="row offset-md-3">
+            <h6>Meaning section</h6>
+          </div>
+        </div>
+      </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
     <script src="youtube_fetch.js"></script>
