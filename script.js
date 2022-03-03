@@ -8,7 +8,9 @@ window.addEventListener('DOMContentLoaded', () => {
     const albumPic = document.getElementById('albumPic');
     const showVidButton = document.getElementById('showVideo')
     searchButton.addEventListener('click', ()=> {
-        showVidButton.addEventListener('click', () => searchVideo(searchVal.value))
+        //showVidButton.addEventListener('click', () => 
+        searchVideo(searchVal.value)
+        //)
         console.log("Im here")
         let songURL = `https://genius.p.rapidapi.com`
     fetch(`${songURL}/search?q=${searchVal.value}`, {
@@ -28,8 +30,8 @@ window.addEventListener('DOMContentLoaded', () => {
             lyrics.innerHTML = `
             <button class = "btn btn-primary" id = "showLyrics">Show lyrics Don't Click unless needed lol</button>
             `
-            let showLyrics = document.getElementById("showLyrics");
-            showLyrics.addEventListener('click', () => {
+            // let showLyrics = document.getElementById("showLyrics");
+            //showLyrics.addEventListener('click', () => {
                 lyrics.innerHTML = `
                 <div class ="d-flex justify-content-center">
                 <div class="spinner-grow text-warning mt-5" style="width: 3rem; height: 3rem;"></div>
@@ -47,7 +49,7 @@ window.addEventListener('DOMContentLoaded', () => {
                     console.log(data);
                     lyrics.innerHTML = data.response.lyrics.lyrics.body.html;
                 }); 
-            })
+           // })
         })
      })
 })
