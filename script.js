@@ -1,3 +1,4 @@
+console.log("DOM content loaded is not working")
 window.addEventListener('DOMContentLoaded', () => {
     const searchButton = document.getElementById('search-button');
     const searchVal = document.getElementById('search-val');
@@ -6,7 +7,8 @@ window.addEventListener('DOMContentLoaded', () => {
     const lyrics = document.getElementById('lyrics');
     const albumPic = document.getElementById('albumPic');
     searchButton.addEventListener('click', ()=> {
-        searchVideo(searchVal.value)
+        searchVideo(searchVal.value);
+        console.log("Im here")
         let songURL = `https://genius.p.rapidapi.com`
     fetch(`${songURL}/search?q=${searchVal.value}`, {
         "method": "GET",
