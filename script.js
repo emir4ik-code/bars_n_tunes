@@ -5,6 +5,7 @@ window.addEventListener('DOMContentLoaded', () => {
     const songName = document.getElementById('song-name');
     const lyrics = document.getElementById('lyrics');
     searchButton.addEventListener('click', ()=> {
+        searchVideo(searchVal.value)
         let songURL = `https://genius.p.rapidapi.com`
     fetch(`${songURL}/search?q=${searchVal.value}`, {
         "method": "GET",
